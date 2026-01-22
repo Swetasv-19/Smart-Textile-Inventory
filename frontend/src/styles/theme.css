@@ -1,0 +1,893 @@
+/* Professional Textile Inventory Management Theme */
+/* Navy Blue: #001f3f, Cream: #f5f5dc */
+
+:root {
+  --navy-blue: #001f3f;
+  --dark-navy: #001428;
+  --accent-blue: #0066cc;
+  --cream: #f5f5dc;
+  --light-cream: #faf8f3;
+  --text-dark: #333333;
+  --text-light: #666666;
+  --border: #d0d0d0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --light-text: #f5f5dc;
+  --light-text-secondary: #e8e8d0;
+}
+
+:root[data-theme="dark"] {
+  --navy-blue: #1a1a2e;
+  --dark-navy: #0f0f1e;
+  --accent-blue: #4d7fff;
+  --cream: #2a2a3e;
+  --light-cream: #3a3a4e;
+  --text-dark: #f5f5dc;
+  --text-light: #e8e8d0;
+  --border: #4a4a5e;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --light-text: #f5f5dc;
+  --light-text-secondary: #e8e8d0;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--text-dark);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--cream);
+}
+
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1001;
+  /* Above navbar */
+  white-space: nowrap;
+  width: 220px;
+  background-color: var(--navy-blue);
+  color: var(--light-text);
+  padding: 20px;
+  box-shadow: 2px 0 5px var(--shadow);
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.admin-sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.admin-sidebar h3 {
+  margin-top: 1em;
+  color: var(--light-text);
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--navy-blue);
+  padding-bottom: 10px;
+}
+
+.admin-sidebar a {
+  display: block;
+  padding: 12px 15px;
+  margin: 8px 0;
+  color: var(--light-text);
+  text-decoration: none;
+  background-color: var(--navy-blue);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.admin-sidebar a:hover {
+  background-color: var(--dark-navy);
+}
+
+.admin-main {
+  flex: 1;
+  background-color: var(--cream);
+  transition: all 0.3s ease;
+  padding-top: 70px;
+  /* Adjust this to match your navbar height */
+}
+
+.admin-navbar {
+  height: 70px;
+  background-color: var(--navy-blue);
+  color: var(--light-text);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 2px 5px var(--shadow);
+}
+
+.admin-navbar .left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-navbar .navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-navbar .hamburger-btn {
+  background: transparent;
+  color: var(--light-text);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-navbar .hamburger-btn:hover {
+  background-color: var(--navy-blue);
+}
+
+.admin-navbar button {
+  background: transparent;
+  color: var(--light-text);
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-navbar button:hover {
+  background-color: var(--navy-blue);
+}
+
+.admin-navbar strong {
+  font-size: 1.4em;
+  color: var(--light-text);
+}
+
+.admin-navbar .logout-btn {
+  background-color: var(--navy-blue);
+  color: var(--light-text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.admin-navbar .logout-btn:hover {
+  background-color: var(--dark-navy);
+}
+
+.page-content {
+  padding: 30px;
+  background-color: var(--cream);
+  background-image: url('https://img.freepik.com/premium-photo/beautiful-cream-silk-texture-luxurious-satin-abstract-background_55716-2420.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in;
+}
+
+.page-title {
+  font-size: 2em;
+  color: var(--navy-blue);
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--navy-blue);
+  padding-bottom: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px var(--shadow);
+  border: 1px solid var(--border);
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Form Styles */
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  background-color: var(--light-cream);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--navy-blue);
+  background-color: white;
+}
+
+.btn {
+  background-color: var(--navy-blue);
+  color: var(--cream);
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 40px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: var(--dark-navy);
+}
+
+.btn-secondary {
+  background-color: var(--navy-blue);
+  color: var(--cream);
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  margin-top: 34px;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow);
+  margin-bottom: 30px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive .table {
+  min-width: 520px;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  background-color: var(--navy-blue);
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.table tr:nth-child(even) {
+  background-color: var(--light-cream);
+}
+
+.table tr:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 0.9em;
+    white-space: nowrap;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.list li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--shadow);
+  border-left: 4px solid var(--navy-blue);
+  animation: slideInUp 0.4s ease-out;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.inventory-form {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.inventory-form .form-group {
+  margin-bottom: 0;
+  min-width: 0;
+  height: auto;
+}
+
+.inventory-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+.sales-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 12px;
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto;
+}
+
+.sales-form .form-group {
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+.sales-form-summary {
+  grid-column: 1 / -1;
+}
+
+.sales-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .inventory-form {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  /* small space between product boxes */
+}
+
+.admin-sales-card {
+  width: 100%;
+}
+
+.admin-purchases-card {
+  width: 100%;
+}
+
+.admin-purchases-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-purchases-form .form-group {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.admin-purchases-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-customers-card {
+  width: 100%;
+}
+
+.admin-customers-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-customers-form .form-group {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.admin-customers-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-workers-card {
+  width: 100%;
+}
+
+.admin-workers-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-workers-form .form-group {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.admin-workers-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-customers-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-purchases-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-sales-card {
+  width: 100%;
+}
+
+.admin-sales-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.admin-sales-form .form-group {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.admin-sales-summary {
+  flex-basis: 100%;
+}
+
+.admin-sales-actions {
+  flex-basis: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Compact card for Add Product form (like a dialog) */
+.add-product-card,
+.admin-form-card {
+  max-width: max-content;
+  /* background: none; */
+  /* box-shadow: none; */
+  /* border: none; */
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 30px;
+  padding: 18px;
+}
+
+.admin-form-card>form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card.low-stock {
+  border-color: #dc3545;
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-card h4 {
+  margin: 0 0 10px 0;
+  color: var(--navy-blue);
+}
+
+.product-card p {
+  margin: 5px 0;
+  color: var(--text-dark);
+}
+
+.low-stock-text {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Login Page Styles */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+    url('https://img.freepik.com/premium-photo/blue-cream-fabric-draped-textured-background_135170-28412.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: scaleIn 0.8s ease-out;
+}
+
+.login-header h1 {
+  color: var(--navy-blue);
+  margin-bottom: 10px;
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+.login-header p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+.login-form {
+  margin-bottom: 30px;
+}
+
+.login-form .form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  flex: 1;
+  padding-right: 40px;
+  /* Space for the button */
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-light);
+  padding: 5px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.password-toggle-btn:hover {
+  color: var(--navy-blue);
+}
+
+.login-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.login-btn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.login-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.login-footer p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+@keyframes lottie-dress {
+  0% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+/* Analytics Styles */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.analytics-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--shadow);
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: slideInUp 0.7s ease-out;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px);
+}
+
+.analytics-card h3 {
+  margin: 0 0 15px 0;
+  color: var(--navy-blue);
+  font-size: 1.1em;
+}
+
+.analytics-value {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.analytics-value.profit {
+  color: #28a745;
+}
+
+.analytics-value.loss {
+  color: #dc3545;
+}
+
+/* Sidebar Overlay for all screen sizes */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  /* Below sidebar, above content */
+  display: block;
+}
+
+.sidebar-close-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.sidebar-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+  .admin-main {
+    padding-top: 70px;
+    /* Space for fixed navbar */
+    margin-left: 0 !important;
+    /* Override desktop margin */
+  }
+
+  .page-content {
+    padding: 20px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Theme Toggle Switch */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background-color: var(--navy-blue);
+}
+
+.theme-toggle-switch {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3px;
+  width: 50px;
+  height: 26px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.theme-toggle-switch.dark {
+  background-color: var(--navy-blue);
+}
+
+.theme-toggle-switch-slider {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.theme-toggle-switch.dark .theme-toggle-switch-slider {
+  transform: translateX(24px);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

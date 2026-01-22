@@ -1,0 +1,120 @@
+.dashboard-wrapper {
+  padding: 30px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* TITLE */
+.dashboard-title {
+  font-size: 30px;
+  color: #0b2a4a;
+  font-style: italic;
+  margin-bottom: 20px;
+  animation: slideDown 0.8s ease;
+}
+
+/* INTRO CARD */
+.intro-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  margin-bottom: 40px;
+  animation: fadeIn 1.2s ease;
+}
+
+.intro-card p {
+  font-size: 15px;
+  color: #333;
+}
+
+/* FEATURE GRID */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* FEATURE CARD */
+.feature-card {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100px;
+  background: white;
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: floatUp 1s ease;
+}
+
+.feature-card > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card  > h3 {
+  margin-top: 8px;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.feature-card h3 {
+  color: #0b2a4a;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* FOOTER */
+.dashboard-footer {
+  margin-top: 40px;
+  font-style: italic;
+  color: #555;
+  animation: fadeIn 2s ease;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

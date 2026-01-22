@@ -1,0 +1,306 @@
+/* General Page Styles */
+.pageTitle {
+  font-size: 1.8em;
+  color: var(--navy-blue);
+  margin-bottom: 20px;
+  border-bottom: 3px solid var(--accent-blue);
+  padding-bottom: 10px;
+}
+
+.cardTitle {
+  margin: 0;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.inventoryForm {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.formGroup label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.formGroup input,
+.formGroup select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  height: 40px;
+  background-color: var(--light-cream);
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  background-color: white;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--navy-blue);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+  flex: 1;
+}
+
+.btn:hover {
+  background-color: var(--dark-navy);
+}
+
+.btnSecondary {
+  background-color: #6c757d;
+}
+
+.btnSecondary:hover {
+  background-color: #5a6268;
+}
+
+.btnDanger {
+  background-color: #dc3545;
+}
+
+.btnDanger:hover {
+  background-color: #c82333;
+}
+
+.productActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.productActions .btn {
+  flex: 1;
+}
+
+/* File Upload Styles */
+/* Wrapper for the button and file name */
+.fileInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* This div will act as the button */
+.fileInputWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background-color: var(--navy-blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  width: 100%;
+  font-size: 0.95em;
+  position: relative;
+  /* For positioning the hidden input */
+  overflow: hidden;
+}
+
+.fileInputWrapper:hover {
+  background-color: var(--dark-navy);
+}
+
+.fileName {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 4px;
+  word-break: break-word;
+}
+
+/* Style the actual file input as an invisible overlay */
+.hiddenFileInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Form actions */
+.formActions {
+  display: flex;
+  justify-content: center;
+  grid-column: 1 / -1;
+  margin-top: 0;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.formRow {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+/* Product grid */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* Product card */
+.productCard {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.productImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.lowStock {
+  border-left: 4px solid #ff6b6b;
+}
+
+.lowStockText {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* Container for the entire inventory */
+.inventoryContainer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .inventoryForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inventoryContainer {
+    padding-top: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .pageTitle {
+    font-size: 1.5em;
+  }
+
+  .inventoryForm {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .formGroup {
+    width: 100%;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formActions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productCard {
+    padding: 12px;
+  }
+
+  .formGroup {
+    margin-bottom: 6px;
+  }
+
+  .formGroup input,
+  .formGroup select {
+    height: 34px;
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+
+  .fileInputButton {
+    padding: 10px 14px;
+    font-size: 0.95em;
+  }
+
+  .productImage {
+    height: 120px;
+  }
+}

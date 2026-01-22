@@ -1,0 +1,148 @@
+.loginContainer {
+  min-height: 100vh;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+    url('https://img.freepik.com/premium-photo/blue-cream-fabric-draped-textured-background_135170-28412.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loginCard {
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: scaleIn 0.8s ease-out;
+}
+
+.loginHeader h1 {
+  color: var(--navy-blue);
+  margin-bottom: 10px;
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+.loginHeader p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+.loginForm {
+  margin-bottom: 30px;
+}
+
+.loginForm .formGroup {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.loginForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  background-color: var(--light-cream);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  background-color: white;
+}
+
+.passwordInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInputContainer input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.passwordToggleBtn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text-light);
+  padding: 5px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.passwordToggleBtn:hover {
+  color: var(--navy-blue);
+}
+
+.btn {
+  background-color: var(--navy-blue);
+  color: var(--cream);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 4px;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: var(--accent-blue);
+}
+
+.loginBtn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.loginBtn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.loginFooter {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.loginFooter p {
+  color: var(--text-light);
+  margin: 0;
+}
